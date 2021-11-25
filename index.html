@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <title>Vet ikke enda</title>
+</head>
+<body>
+
+<script>
+    //Oppgave 1
+    let tall1=4  //her kan du legge inn hvilket som helst tall
+    let tall2=5
+    sum=tall1+tall2     // summerer tallene
+    console.log("Summen av", tall1, "og", tall2, "er:", sum) //skriver ut svaret i konsollen
+
+    //Oppgave 2
+    let tall = 17;
+    let tekst = "Gunnar";
+    console.log(tall > 1);
+    console.log(tall <= 17);
+    console.log(tall != 20);
+    console.log(tall === "17");
+    console.log(tekst == "Nls");
+    console.log(tall > 20 || tall > 40);
+
+    //Oppgave 3
+    let alder =17 // gir en alder. kan være vilken som helst alder
+
+    if(alder >= 18) {
+        console.log("Personen kan kjøre bil(18), moped(16), og sparkesykkel(ingen grense), fordi han er", alder,"år")
+        // hvis alderen er 18 eller høyere skrive inn svaret ovenfor i konsollen.
+    } else if(alder >= 16 && alder < 18) {
+        console.log("Personen kan kjøre moped(16), og sparkesykkel(ingen grense), fordi han er", alder,"år")
+        // hvis alderen er høyere eller lik 16 men ikke eldre enn 18 vil programmet skrive inn svaret ovenfor i konsollen.
+    } else {
+        console.log("Personen kan kjøre sparkesykkel(ingen grense), fordi han er", alder,"år")
+        // hvis alderen ikke stemmer med if setningene ovenfor vil programmet skrive inn svaret ovenfor i konsollen.
+    }
+
+    //Oppgave 4
+    //a
+    for (let i = 0; i <= 10; i++) { //programmet ser om i som får startverdien 0 er mindre enn eller lik 10 og hvis dette er sant vil løkken utføre oppgaven.
+       console.log(i+10) // skriver ut i tallet pluss 10 fordi startverdien var 10
+    }
+
+    //b
+    for (let i = 0; i <= 28; i++) { //programmet ser om i som får startverdien 0 er mindre enn eller lik 28 og hvis dette er sant vil løkken utføre oppgaven.
+        console.log(i+2) // skriver ut i tallet pluss 2 fordi startverdien var 2
+    }
+
+    //Oppgave 5
+    //a
+
+    let vinter_OL = [  //liste av alle vinter-ol landene. Objekter i en aray.
+        { land: "Norge",
+            sted: "Lillehammer",
+            ar:1994 },
+        { land: "Japan",
+            sted: "Nagano",
+            ar:1998 },
+        { land: "USA",
+            sted: "Salt Lake City",
+            ar:2002 },
+        { land: "Italia",
+            sted: "Torino",
+            ar:2006 },
+        { land: "Canada",
+            sted: "Vancouver",
+            ar:2010 },
+        { land: "Russland",
+            sted: "Sotsji",
+            ar:2014 },
+        { land: "Sør-Korea",
+            sted: "Pyeongchang",
+            ar:2018 },
+        { land: "Kina",
+            sted: "Beijing",
+            ar:2022 },
+    ];
+
+    //b & c
+    function ol_tabell() {
+        for (var i = 0; i < vinter_OL.length; i++) {  // bruker lengden på arayen for å få en sluttverdi. bruker startverdi i=0
+            console.log("I", vinter_OL[i].ar, " ble vinter-ol arangsjert i ", vinter_OL[i].sted, "i ",vinter_OL[i].land, ". "); //priter ut infoen i konsollen.
+        }
+    }
+
+    ol_tabell()
+
+
+    //Oppgave 6
+    //a
+    let aarstall =[] //definerer arayen men gir ingen verdier
+
+    let skuddaar =[] //definerer arayen men gir ingen verdier
+
+    //b
+    function fyllaarstall(tilaar) {
+        for (let aar = 1900; aar <= tilaar; aar++) { //lager startverdien aar og sluttverdien være defniert av parameter. lar programmet gå til startverdi er mindre eller lik sluttverdi. startverdi blir en større for hver gang løkken startes.
+            aarstall.push(aar) // setter inn årstallet iinn i arayen
+        }
+    }
+    fyllaarstall(2200)
+
+    //c
+    function fyllskuddaar() {
+        for (let j = 0; j <= aarstall.length; j++) { //definerer startverdi som 0 og lar den bli en større for hver runde. sluttverdien er lengden på arayen "aarstall" og løkken utfører oppgaven når starverdi er mindre ller lik sluttverdi.
+            if (aarstall[j] % 400 ==0) {  // hvis tallet er delelig med 400 utfører løkken oppgaven.
+                skuddaar.push(aarstall[j]); // setter inn tallet i arayen skuddaar
+            } else if (aarstall[j] % 4 ==0 && aarstall[j] % 100 != 0) { // hvis tallet er delelig med 4 og ikke delelig med 100 utfører løkken oppgaven.
+                skuddaar.push(aarstall[j]); // setter inn tallet i arayen skuddaar
+            }
+        }
+        console.log(skuddaar)
+    }
+
+    fyllskuddaar()
+
+    //d
+    function liviabursdag(startaar, sluttaar) {  //funksjonen har to parametere
+        for (let h = 0; h <= skuddaar.length; h++) { // bestemmer at startverdien for løkken er 0 og bruker lengden til arayen skuddaar som sluttverdi.
+
+            if (skuddaar[h] >= startaar && skuddaar[h] <= sluttaar){  //bestemmer hvilke år som skal brukes.
+                console.log("Hurra! I år", skuddaar[h], "kan du feire bursdag!")
+            }
+        }
+    }
+
+    liviabursdag(2004, 2100)
+    //oppgave 7
+
+    function terningspill() {
+        let terningbilder = ["terning1", "terning2", "terning3", "terning4", "terning5", "terning6"];
+        let terning = Math.floor(Math.random() * 6);
+        return "bilder/" + terningbilder[terning] + ".svg"
+    }
+    document.write(<img style= hight: 200px; width: 200px; src= + terningspill() + >)
+
+
+
+
+</script>
+
+</body>
+</html>
